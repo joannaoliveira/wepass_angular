@@ -1,0 +1,441 @@
+:root {
+    --white: #FFF;
+    --black: #000;
+    --gray: #EEEEEE;
+    --gray2: #E2E2E2;
+    --secondColor: #11A193;
+    --thirdColor: #00FFDA;
+    --fourthColor: #00C6B8;
+    --hightlight: #FFFC00;
+}
+  
+html, body, div, span, applet, object, iframe,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: 0;
+	font-weight: normal;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+ol, ul {list-style: none;}
+table {border-collapse: separate; border-spacing: 0;}
+caption, th, td {text-align: left; font-weight: normal;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+img, picture, video, embed {max-width: 100%;}
+*, *:before, *:after {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}
+
+
+body {
+	color: var(--black);
+    font-family: "Inter", sans-serif;
+	background-color: #F3F3F3;
+}
+
+a {color: var(--black); text-decoration: none;}
+    a:hover, a:hover img {        
+        animation: pulse;
+        animation-duration: 1s;
+    }
+	
+strong {font-weight: bold;}
+em {font-style: italic;}
+small {font-size: 0.7em;}
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+.text-right {text-align: right;}
+
+.img-button {cursor: pointer; background:none repeat scroll 0 0 transparent; border:medium none; padding:0; vertical-align:middle;}
+
+#header {
+    width: 100%;
+    padding: 2rem 0;
+    z-index: 10;
+    position: fixed;
+    background-color: var(--secondColor);
+}
+    #header .row {align-items: center;}
+
+.header-top {height: 122px;}
+
+#menu a {
+    color: var(--white); 
+    font-size: 1rem; 
+    margin-left: 1rem;
+    padding: 1rem 0.5rem;
+    display: inline-block;
+    border-radius: 14px;
+}
+    #menu a:first-child {margin-left: 0;}
+    #menu a:first-child {margin-left: 0;}
+    #menu a:nth-child(3), #menu a:nth-child(4), #menu a:nth-child(5) {
+        color: var(--secondColor);
+        margin-left: 1rem;
+        padding: 1rem 2rem;
+        border: solid 2px var(--white);
+        background-color: var(--white);
+    }
+        #menu a:nth-child(4):hover, #menu a:nth-child(5):hover {
+            color: var(--white);
+            background-color: var(--secondColor);
+        }
+    #menu a:nth-child(3) {
+        border: solid 2px var(--hightlight);
+        background-color: var(--hightlight);
+    }
+        #menu a:nth-child(3):hover {
+            border-color: var(--white);
+        }
+
+.hamburger {display: none;}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--white);
+}
+
+@media screen and (max-width: 1200px) {
+    #menu a {margin-left: 0.5rem;}
+    #menu a:nth-child(3), #menu a:nth-child(4), #menu a:nth-child(5) {margin-left: 0.5rem; padding: 1rem 1.4rem;}
+}
+@media screen and (max-width: 991px) {
+    #header {padding: 1rem 0;}
+    .header-top {height: 90px;}
+    #menu {
+        display: none;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 2rem;
+        top: 80px;
+        left: 0;
+        z-index: 10;
+        position: absolute;
+        background-color: rgba(17, 161, 147, 0.95);
+    }
+        #menu.active {
+            display: block;
+        }
+    .hamburger {display: block; cursor: pointer;}    
+        .hamburger.active .bar:nth-child(2) {opacity: 0;}
+        .hamburger.active .bar:nth-child(1) {transform: translateY(8px) rotate(45deg);}
+        .hamburger.active .bar:nth-child(3) {transform: translateY(-8px) rotate(-45deg);}
+}
+@media screen and (max-width: 795px) {
+    #menu a {font-size: 0.9rem;}
+    #menu a:nth-child(3), #menu a:nth-child(4), #menu a:nth-child(5) {padding: 0.7rem 1rem;}
+}
+@media screen and (max-width: 710px) {
+    #menu {padding: 2rem 3rem; background-color: rgba(17, 161, 147, 0.9);}
+    #menu a {
+        display: block; 
+        margin: 1rem 0 !important; 
+        padding: 0.7rem 1rem;
+        border: solid 2px var(--white);
+        background-color: var(--secondColor);
+    }
+}
+
+#banner {
+    width: 100%;
+    height: 770px;
+    background: url(../assets/images/banner.png) no-repeat center 0 transparent;
+}
+    #banner img {display: none;}
+
+@media screen and (max-width: 1575px) {
+    #banner {height: auto; background-image: none;}
+        #banner img {display: inline;}
+}
+
+#sobre {padding: 5rem 0;}
+.sobre-video {position: relative;}
+    .sobre-video .txt {
+        width: calc(301px - 4rem);
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 1.2em;
+        top: 80px;
+        right: -190px;
+        padding: 1.6rem 2rem;
+        position: absolute;
+        border-radius: 20px;
+        background-color: var(--thirdColor);
+    }
+        .sobre-video .txt .img {text-align: right; margin-top: 0.5rem;}
+
+.box-sobre {
+    font-size: 1.2rem;
+    max-width: 764px;
+    padding: 6rem 4rem 4rem;
+    margin-top: 12rem;
+    border-radius: 20px;
+    background-color: var(--white);
+}
+
+.btn-contato {margin: 3rem 0 0 4rem;}
+    .btn-contato a {
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        transition: all 1s;
+        border: solid 2px var(--secondColor);
+        background-color: var(--secondColor);
+    }
+        .btn-contato a:hover {border-color: var(--thirdColor);}
+        
+@media screen and (max-width: 991px) {
+    .sobre-video {text-align: center;}
+    .sobre-video .txt {display: none;}
+    .box-sobre {padding-top: 4rem; margin-top: 4rem;}
+}
+@media screen and (max-width: 590px) {
+    .box-sobre {padding: 3rem;}
+    .btn-contato {margin-left: 3rem;}
+}
+
+#chamada {
+    width: 100%;
+    margin-top: 7rem;
+    background: rgb(0,214,194);
+    background: linear-gradient(90deg, rgba(0,214,194,1) 0%, rgba(0,0,0,1) 100%);
+}
+    #chamada .container {top: -7rem; position: relative;}
+    #chamada .img {
+        text-align: center;
+        padding: 5rem 2rem;
+        padding-right: calc(2rem - 8px);
+        border-radius: 20px 0 0 20px;
+        background-color: var(--hightlight);
+    }
+    #chamada .info {
+        padding: 5rem 7rem;
+        border-radius: 0 20px 20px 0;
+        background-color: var(--white);
+    }
+        #chamada .info p {font-size: 1.4rem; line-height: 1.4em;}
+        #chamada .info span {
+            color: var(--white);
+            font-size: 1.6rem;
+            display: inline-block;
+            margin: 0.2rem 0;
+            padding: 0.2rem 2rem;
+            border-radius: 50px;
+            background-color: var(--fourthColor);
+        }
+        #chamada .info .destaque {
+            font-size: 2.3rem;
+            font-weight: 500;
+            margin: 2rem 0;
+        }
+
+#bg-chamada {
+    width: 100%;
+    height: 10px;
+    background: rgb(254,251,1);
+    background: linear-gradient(90deg, rgba(254,251,1,1) 0%, rgba(1,255,217,1) 100%);
+}
+@media screen and (max-width: 1200px) {
+    #chamada .info {padding: 5rem 2rem;}
+}
+@media screen and (max-width: 767px) {
+    #chamada {margin-top: 4rem;}
+        #chamada .container {top: -4rem;}
+        #chamada .img {display: none;}
+        #chamada .info {padding: 4rem; border-radius: 20px;}
+}
+@media screen and (max-width: 590px) {
+    #chamada .info {width: 90%; margin: 0 auto;}
+        #chamada .info p {font-size: 1.2rem;}
+        #chamada .info .destaque {font-size: 1.8rem;}
+}
+@media screen and (max-width: 460px) {
+    #chamada .info {padding: 3rem 2rem;}
+        #chamada .info p {font-size: 1.1rem;}
+        #chamada .info .destaque {font-size: 1.6rem;}
+        #chamada .info span {font-size: 1.2rem;}
+}
+
+#beneficios {padding: 5rem 0 0; position: relative;}
+    #beneficios .bg1, #beneficios .bg2 {
+        width: 30%;
+        height: 40%;
+        z-index: 1; 
+        position: absolute;
+        background-color: var(--gray2);
+    }
+    #beneficios .bg1 {top: 0; right: 0; border-radius: 0 0 0 100px;}
+    #beneficios .bg2 {left: -30px; bottom: 160px; border-radius: 100px 0 0 0;}
+    #beneficios .container {z-index: 2; position: relative;}
+    #beneficios h2 {margin: 0 0 4rem;}
+        #beneficios h2 span {
+            font-weight: 500;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--thirdColor);
+        }
+    #beneficios .img {text-align: center; z-index: 1; position: relative;}
+    #beneficios .descricao {
+        min-height: 270px;
+        padding: 2rem;
+        border-radius: 20px;
+        z-index: 2;
+        position: relative;
+        background-color: var(--white);
+    }
+        #beneficios .descricao h3 {
+            width: 100%;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: -4rem 0 2rem;
+            padding: 0.8rem 1rem 0.8rem 1.6rem;
+            background-color: var(--thirdColor);
+        }
+            #beneficios .descricao h3 span {font-weight: 500;}
+
+#beneficios-detalhe {
+    width: 100%;
+    height: 280px;
+    margin-top: -160px;
+    background-color: var(--fourthColor);
+}
+
+@media screen and (max-width: 1140px) {
+    #beneficios .descricao h3 {font-size: 1.3rem;}
+        #beneficios .descricao h3 svg {max-width: 80px;}
+    #beneficios .descricao p {font-size: 0.9rem;}
+}
+@media screen and (max-width: 991px) {
+    #beneficios .descricao {padding: 2rem 1.4rem;}
+        #beneficios .descricao h3 {margin-bottom: 1rem;}
+            #beneficios .descricao h3 svg {display: none;}
+    #beneficios-detalhe {height: 220px;}
+}
+@media screen and (max-width: 764px) {
+    #beneficios {padding: 4rem 0 3rem;}
+    #beneficios .bg1, #beneficios .bg2, #beneficios-detalhe {display: none;}
+    #beneficios h2 {margin: 0 0 2rem;}
+    #beneficios .chamada-beneficios {margin: 2rem 0;}
+    #beneficios .descricao h3 svg {display: inline;}
+    #beneficios .descricao {min-height: auto;}
+}
+@media screen and (max-width: 620px) {#beneficios .tit-detalhe {display: none;}}
+
+#contato {
+    width: 100%;    
+    position: relative;
+    background: linear-gradient(to bottom,  rgba(0,255,217,1) 0%,rgba(0,255,217,1) 80%,rgba(2,234,208,1) 80.1%,rgba(2,234,208,1) 100%);
+}
+    #contato, #contato .bg-contato {min-height: 903px;}
+    #contato .bg-contato {
+        background: url(../assets/images/bg-contato.png) no-repeat 0 0 transparent;
+    }
+    #contato .col-12 {position: relative;}
+    #contato .formulario {
+        width: 50%;
+        padding: 2rem;
+        top: 3rem;
+        right: 0;
+        position: absolute;
+        border-radius: 10px;
+        background-color: var(--gray);
+    }
+        #contato .formulario label {display: block; margin-bottom: 0.2rem;}
+            #contato .formulario label.error {
+                color: #FF0000;
+                font-size: 0.8rem;
+                font-weight: 500;
+                margin: -2.35rem 0 1rem 0.5rem;
+            }
+        #contato .formulario input, #contato .formulario textarea {
+            width: 100%;
+            margin: 0 0 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: solid 1px var(--white);
+            background-color: var(--white);
+        }
+        #contato .formulario textarea {height: 100px;}
+        #contato .formulario button {
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 0.5rem 4rem;
+            transition: all 1s;
+            border-radius: 10px;
+            border: solid 1px var(--thirdColor);
+            background-color: var(--thirdColor);
+        }
+            #contato .formulario button:hover {border-color: var(--black);}
+
+@media screen and (max-width: 1600px) {
+    #contato .bg-contato {background-position: -30% 0;}
+}
+@media screen and (max-width: 1440px) {
+    #contato .bg-contato {background-position: -352px 0;}
+}
+@media screen and (max-width: 991px) {
+    #contato .bg-contato {background: none;}
+    #contato .formulario {width: 94%; right: 3%;}
+}
+
+#clientes {padding: 4rem 0;}
+    #clientes h2 {
+        max-width: 200px;
+        font-size: 1.6rem;
+        line-height: 1.6em;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+        #clientes h2 span {
+            font-weight: 500;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            background-color: var(--thirdColor);
+        }
+    #clientes .lista {
+        display: flex; 
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+        #clientes .lista img {margin: 1rem;}
+
+#footer {
+    width: 100%;
+    padding: 5rem 0;
+    background-color: var(--fourthColor);
+}
+    #footer .row {align-items: center;}
+    #footer .redes-sociais img {margin-right: 1rem;}
+    #footer .logo {text-align: center;}
+    #footer .endereco {
+        color: var(--white);
+        font-size: 0.9rem;
+        text-align: right;
+    }
+    
+@media screen and (max-width: 768px) {
+    #footer .logo {display: none;}
+}
+@media screen and (max-width: 360px) {
+    #footer .redes-sociais, #footer .endereco {width: 100%; text-align: center;}
+        #footer .redes-sociais img {margin: 0 0.5rem 2rem;}
+}
