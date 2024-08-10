@@ -9,11 +9,11 @@
             </div>
             <div class="col-2 col-lg-10 text-right">
                 <nav id="menu">
-                    <a href="#" class="goToBeneficios">Benefícios</a>
-                    <a href="#" class="goToSaibaMais">Saiba mais</a>
-                    <a href="#" class="goToOrcamento">Solicite um Orçamento</a>
-                    <a href="#" class="goToAdministrativo">Administrativo</a>
-                    <a href="#" class="goToMorador">Morador</a>
+                    <a href="#" (click)="scroll(beneficios)">Benefícios</a>
+                    <a href="#" (click)="scroll(saibaMais)">Saiba mais</a>
+                    <a href="#" (click)="scroll(contato)">Solicite um Orçamento</a>
+                    <a href="#" (click)="scroll(saibaMais)">Administrativo</a>
+                    <a href="#" (click)="scroll(clientes)">Morador</a>
                 </nav>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -34,7 +34,7 @@
 </section>
 
 <div class="bootstrap-wrapper">
-<section id="sobre" class="container">
+<section #morador id="sobre" class="container">
     <div class="row">
         <div class="sobre-video col-12 col-lg-5 col-xl-4">
             <img src="assets/images/video.png" alt="">
@@ -75,7 +75,7 @@
 </section>
 </div>
 
-<section id="chamada">
+<section #saibaMais id="chamada">
   <div class="bootstrap-wrapper">
     <div class="container">
         <div class="row">
@@ -119,7 +119,7 @@
 </section>
 <div id="bg-chamada"></div>
 
-<section id="beneficios">
+<section #beneficios id="beneficios">
   <div class="bootstrap-wrapper">
     <div class="container">
         <div class="row">
@@ -229,7 +229,7 @@
 </section>
 <div id="beneficios-detalhe"></div>
 
-<section id="contato">
+<section #contato id="contato">
     <div class="bg-contato">
       <div class="bootstrap-wrapper">
         <div class="container">
@@ -278,7 +278,7 @@
 </section>
 
 <div class="bootstrap-wrapper">
-<section id="clientes" class="container">
+<section #clientes id="clientes" class="container">
     <div class="row">
         <div class="col">
             <h2>Clientes que <span>usam Wepass</span></h2>
