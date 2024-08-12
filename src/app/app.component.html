@@ -236,34 +236,53 @@
             <div class="row">
                 <div class="col-12">
                     <div class="formulario">
-                        <form id="frmContato" name="">
+                        <form id="frmContato" [formGroup]="form" (ngSubmit)="onSubmit()">
                             <div>
                                 <label for="iNome">Nome</label>
-                                <input type="text" name="iNome" id="iNome" required>
+                                <input type="text" name="iNome" id="iNome" formControlName="iNome" required>
+                                <div *ngIf="submitted && f['iNome'].errors" class="invalid-feedback">
+                                    <label class="error" *ngIf="form.get('iNome')?.errors?.['required']">Campo obrigatório</label>
+                                </div>
                             </div>
                             <div>
                                 <label for="iWhatsapp">Whatsapp</label>
-                                <input type="text" name="iWhatsapp" id="iWhatsapp" class="phone" required>
+                                <input type="text" name="iWhatsapp" id="iWhatsapp" formControlName="iWhatsapp" class="phone" required>
+                                <div *ngIf="submitted && f['iWhatsapp'].errors">
+                                    <label class="error" *ngIf="form.get('iWhatsapp')?.errors?.['required']">Campo obrigatório</label>
+                                </div>
                             </div>
                             <div>
                                 <label for="iEmail">E-mail</label>
-                                <input type="email" name="iEmail" id="iEmail" required>
+                                <input type="email" name="iEmail" id="iEmail" formControlName="iEmail" required>
+                                <div *ngIf="submitted && f['iEmail'].errors">
+                                    <label class="error" *ngIf="form.get('iEmail')?.errors?.['required']">Campo obrigatório</label>
+                                    <label class="error" *ngIf="form.get('iEmail')?.errors?.['email']">E-mail inválido</label>
+                                </div>
                             </div>
                             <div>
                                 <label for="iCidade">Cidade</label>
-                                <input type="text" name="iCidade" id="iCidade" required>
+                                <input type="text" name="iCidade" id="iCidade" formControlName="iCidade" required>
+                                <div *ngIf="submitted && f['iCidade'].errors">
+                                    <label class="error" *ngIf="form.get('iCidade')?.errors?.['required']">Campo obrigatório</label>
+                                </div>
                             </div>
                             <div>
                                 <label for="iCondominio">Condomínio</label>
-                                <input type="text" name="iCondominio" id="iCondominio" required>
+                                <input type="text" name="iCondominio" id="iCondominio" formControlName="iCondominio" required>
+                                <div *ngIf="submitted && f['iCondominio'].errors">
+                                    <label class="error" *ngIf="form.get('iCondominio')?.errors?.['required']">Campo obrigatório</label>
+                                </div>
                             </div>
                             <div>
                                 <label for="iLotes">Número de Lotes</label>
-                                <input type="number" name="iLotes" id="iLotes" required>
+                                <input type="number" name="iLotes" id="iLotes" formControlName="iLotes" required>
+                                <div *ngIf="submitted && f['iLotes'].errors">
+                                    <label class="error" *ngIf="form.get('iLotes')?.errors?.['required']">Campo obrigatório</label>
+                                </div>
                             </div>
                             <div>
                                 <label for="tObs">Observações</label>
-                                <textarea name="tObs" id="tObs"></textarea>
+                                <textarea name="tObs" id="tObs" formControlName="tObs"></textarea>
                             </div>
                             <div class="acao">
                                 <button class="img-button" type="submit">Enviar</button>
