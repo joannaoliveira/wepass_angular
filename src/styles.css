@@ -124,19 +124,15 @@ sub {bottom: -0.25em;}
     #header {padding: 1rem 0;}
     .header-top {height: 90px;}
     #menu {
-        display: none;
         width: 100%;
         text-align: center;
         padding: 1rem 2rem;
         top: 80px;
         left: 0;
         z-index: 10;
-        position: absolute;
+        position: fixed;
         background-color: rgba(17, 161, 147, 0.95);
     }
-        #menu.active {
-            display: block;
-        }
     .hamburger {display: block; cursor: pointer;}    
         .hamburger.active .bar:nth-child(2) {opacity: 0;}
         .hamburger.active .bar:nth-child(1) {transform: translateY(8px) rotate(45deg);}

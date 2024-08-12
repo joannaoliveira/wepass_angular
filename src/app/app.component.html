@@ -8,14 +8,14 @@
                 </a>
             </div>
             <div class="col-2 col-lg-10 text-right">
-                <nav id="menu">
+                <nav id="menu" *ngIf="showMenu()">
                     <a href="#" (click)="scroll(beneficios)">Benefícios</a>
                     <a href="#" (click)="scroll(saibaMais)">Saiba mais</a>
                     <a href="#" (click)="scroll(contato)">Solicite um Orçamento</a>
                     <a href="#" (click)="scroll(saibaMais)">Administrativo</a>
                     <a href="#" (click)="scroll(clientes)">Morador</a>
                 </nav>
-                <div class="hamburger">
+                <div class="hamburger" [class.active]="this.mobileMenu" (click)="openMenu()">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>

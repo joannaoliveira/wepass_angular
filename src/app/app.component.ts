@@ -1,5 +1,5 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
@@ -13,6 +13,8 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
 export class AppComponent {
 
+  innerWidth: any;
+  mobileMenu: boolean = false;
   form: FormGroup = new FormGroup({
     iNome: new FormControl(''),
     iWhatsapp: new FormControl(''),
@@ -31,6 +33,10 @@ export class AppComponent {
   ) { }
 
   ngOnInit() {
+    if (typeof window !== "undefined") {
+      this.innerWidth = window.innerWidth;
+    }
+
     this.router.events.subscribe((event) => {
         if (!(event instanceof NavigationEnd)) {
             return;
@@ -53,6 +59,11 @@ export class AppComponent {
     );
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+  }
+
   scroll(el: HTMLElement) {
     el.scrollIntoView({ behavior: "smooth" });
     return false;
@@ -70,6 +81,19 @@ export class AppComponent {
     }
 
     console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  showMenu() {
+    if(this.innerWidth > 991)
+      return true;
+    else if(this.mobileMenu)
+      return true;
+    return false;
+  }
+
+  openMenu(){
+    this.mobileMenu = !this.mobileMenu;
+    this.showMenu();
   }
 
 }
